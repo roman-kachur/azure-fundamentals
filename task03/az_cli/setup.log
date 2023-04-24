@@ -1,0 +1,278 @@
+Creating resource group
+{
+  "id": "/subscriptions/7ff2cce6-aa95-45c0-b03b-9453468761fa/resourceGroups/task3",
+  "location": "westeurope",
+  "managedBy": null,
+  "name": "task3",
+  "properties": {
+    "provisioningState": "Succeeded"
+  },
+  "tags": null,
+  "type": "Microsoft.Resources/resourceGroups"
+}
+Creating vpc and subnet
+{
+  "newVNet": {
+    "addressSpace": {
+      "addressPrefixes": [
+        "10.3.0.0/16"
+      ]
+    },
+    "enableDdosProtection": false,
+    "etag": "W/\"d4f78871-79e3-4b5a-be2a-3e16f7487743\"",
+    "id": "/subscriptions/7ff2cce6-aa95-45c0-b03b-9453468761fa/resourceGroups/task3/providers/Microsoft.Network/virtualNetworks/vpc3",
+    "location": "westeurope",
+    "name": "vpc3",
+    "provisioningState": "Succeeded",
+    "resourceGroup": "task3",
+    "resourceGuid": "e902698c-e043-414b-a912-afae069b0d4d",
+    "subnets": [],
+    "type": "Microsoft.Network/virtualNetworks",
+    "virtualNetworkPeerings": []
+  }
+}
+{
+  "addressPrefix": "10.3.1.0/24",
+  "delegations": [],
+  "etag": "W/\"21d55f3b-83e4-4d3b-a4d0-f9a312d1ea95\"",
+  "id": "/subscriptions/7ff2cce6-aa95-45c0-b03b-9453468761fa/resourceGroups/task3/providers/Microsoft.Network/virtualNetworks/vpc3/subnets/subnet1",
+  "name": "subnet1",
+  "privateEndpointNetworkPolicies": "Disabled",
+  "privateLinkServiceNetworkPolicies": "Enabled",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "task3",
+  "type": "Microsoft.Network/virtualNetworks/subnets"
+}
+Allocate public ip address
+13.73.176.115
+Creating network security group
+{
+  "NewNSG": {
+    "defaultSecurityRules": [
+      {
+        "access": "Allow",
+        "description": "Allow inbound traffic from all VMs in VNET",
+        "destinationAddressPrefix": "VirtualNetwork",
+        "destinationAddressPrefixes": [],
+        "destinationPortRange": "*",
+        "destinationPortRanges": [],
+        "direction": "Inbound",
+        "etag": "W/\"42329698-91f5-4f8a-b26f-4cfaf342a485\"",
+        "id": "/subscriptions/7ff2cce6-aa95-45c0-b03b-9453468761fa/resourceGroups/task3/providers/Microsoft.Network/networkSecurityGroups/nsg3/defaultSecurityRules/AllowVnetInBound",
+        "name": "AllowVnetInBound",
+        "priority": 65000,
+        "protocol": "*",
+        "provisioningState": "Succeeded",
+        "resourceGroup": "task3",
+        "sourceAddressPrefix": "VirtualNetwork",
+        "sourceAddressPrefixes": [],
+        "sourcePortRange": "*",
+        "sourcePortRanges": [],
+        "type": "Microsoft.Network/networkSecurityGroups/defaultSecurityRules"
+      },
+      {
+        "access": "Allow",
+        "description": "Allow inbound traffic from azure load balancer",
+        "destinationAddressPrefix": "*",
+        "destinationAddressPrefixes": [],
+        "destinationPortRange": "*",
+        "destinationPortRanges": [],
+        "direction": "Inbound",
+        "etag": "W/\"42329698-91f5-4f8a-b26f-4cfaf342a485\"",
+        "id": "/subscriptions/7ff2cce6-aa95-45c0-b03b-9453468761fa/resourceGroups/task3/providers/Microsoft.Network/networkSecurityGroups/nsg3/defaultSecurityRules/AllowAzureLoadBalancerInBound",
+        "name": "AllowAzureLoadBalancerInBound",
+        "priority": 65001,
+        "protocol": "*",
+        "provisioningState": "Succeeded",
+        "resourceGroup": "task3",
+        "sourceAddressPrefix": "AzureLoadBalancer",
+        "sourceAddressPrefixes": [],
+        "sourcePortRange": "*",
+        "sourcePortRanges": [],
+        "type": "Microsoft.Network/networkSecurityGroups/defaultSecurityRules"
+      },
+      {
+        "access": "Deny",
+        "description": "Deny all inbound traffic",
+        "destinationAddressPrefix": "*",
+        "destinationAddressPrefixes": [],
+        "destinationPortRange": "*",
+        "destinationPortRanges": [],
+        "direction": "Inbound",
+        "etag": "W/\"42329698-91f5-4f8a-b26f-4cfaf342a485\"",
+        "id": "/subscriptions/7ff2cce6-aa95-45c0-b03b-9453468761fa/resourceGroups/task3/providers/Microsoft.Network/networkSecurityGroups/nsg3/defaultSecurityRules/DenyAllInBound",
+        "name": "DenyAllInBound",
+        "priority": 65500,
+        "protocol": "*",
+        "provisioningState": "Succeeded",
+        "resourceGroup": "task3",
+        "sourceAddressPrefix": "*",
+        "sourceAddressPrefixes": [],
+        "sourcePortRange": "*",
+        "sourcePortRanges": [],
+        "type": "Microsoft.Network/networkSecurityGroups/defaultSecurityRules"
+      },
+      {
+        "access": "Allow",
+        "description": "Allow outbound traffic from all VMs to all VMs in VNET",
+        "destinationAddressPrefix": "VirtualNetwork",
+        "destinationAddressPrefixes": [],
+        "destinationPortRange": "*",
+        "destinationPortRanges": [],
+        "direction": "Outbound",
+        "etag": "W/\"42329698-91f5-4f8a-b26f-4cfaf342a485\"",
+        "id": "/subscriptions/7ff2cce6-aa95-45c0-b03b-9453468761fa/resourceGroups/task3/providers/Microsoft.Network/networkSecurityGroups/nsg3/defaultSecurityRules/AllowVnetOutBound",
+        "name": "AllowVnetOutBound",
+        "priority": 65000,
+        "protocol": "*",
+        "provisioningState": "Succeeded",
+        "resourceGroup": "task3",
+        "sourceAddressPrefix": "VirtualNetwork",
+        "sourceAddressPrefixes": [],
+        "sourcePortRange": "*",
+        "sourcePortRanges": [],
+        "type": "Microsoft.Network/networkSecurityGroups/defaultSecurityRules"
+      },
+      {
+        "access": "Allow",
+        "description": "Allow outbound traffic from all VMs to Internet",
+        "destinationAddressPrefix": "Internet",
+        "destinationAddressPrefixes": [],
+        "destinationPortRange": "*",
+        "destinationPortRanges": [],
+        "direction": "Outbound",
+        "etag": "W/\"42329698-91f5-4f8a-b26f-4cfaf342a485\"",
+        "id": "/subscriptions/7ff2cce6-aa95-45c0-b03b-9453468761fa/resourceGroups/task3/providers/Microsoft.Network/networkSecurityGroups/nsg3/defaultSecurityRules/AllowInternetOutBound",
+        "name": "AllowInternetOutBound",
+        "priority": 65001,
+        "protocol": "*",
+        "provisioningState": "Succeeded",
+        "resourceGroup": "task3",
+        "sourceAddressPrefix": "*",
+        "sourceAddressPrefixes": [],
+        "sourcePortRange": "*",
+        "sourcePortRanges": [],
+        "type": "Microsoft.Network/networkSecurityGroups/defaultSecurityRules"
+      },
+      {
+        "access": "Deny",
+        "description": "Deny all outbound traffic",
+        "destinationAddressPrefix": "*",
+        "destinationAddressPrefixes": [],
+        "destinationPortRange": "*",
+        "destinationPortRanges": [],
+        "direction": "Outbound",
+        "etag": "W/\"42329698-91f5-4f8a-b26f-4cfaf342a485\"",
+        "id": "/subscriptions/7ff2cce6-aa95-45c0-b03b-9453468761fa/resourceGroups/task3/providers/Microsoft.Network/networkSecurityGroups/nsg3/defaultSecurityRules/DenyAllOutBound",
+        "name": "DenyAllOutBound",
+        "priority": 65500,
+        "protocol": "*",
+        "provisioningState": "Succeeded",
+        "resourceGroup": "task3",
+        "sourceAddressPrefix": "*",
+        "sourceAddressPrefixes": [],
+        "sourcePortRange": "*",
+        "sourcePortRanges": [],
+        "type": "Microsoft.Network/networkSecurityGroups/defaultSecurityRules"
+      }
+    ],
+    "etag": "W/\"42329698-91f5-4f8a-b26f-4cfaf342a485\"",
+    "id": "/subscriptions/7ff2cce6-aa95-45c0-b03b-9453468761fa/resourceGroups/task3/providers/Microsoft.Network/networkSecurityGroups/nsg3",
+    "location": "westeurope",
+    "name": "nsg3",
+    "provisioningState": "Succeeded",
+    "resourceGroup": "task3",
+    "resourceGuid": "d69469e5-1b77-4c3e-b51a-822e738b8fad",
+    "securityRules": [],
+    "type": "Microsoft.Network/networkSecurityGroups"
+  }
+}
+Opening ports 80 for NSG
+{
+  "access": "Allow",
+  "destinationAddressPrefix": "*",
+  "destinationAddressPrefixes": [],
+  "destinationPortRange": "80",
+  "destinationPortRanges": [],
+  "direction": "Inbound",
+  "etag": "W/\"a0280e4d-6259-4eda-a179-7f71d7bde9b3\"",
+  "id": "/subscriptions/7ff2cce6-aa95-45c0-b03b-9453468761fa/resourceGroups/task3/providers/Microsoft.Network/networkSecurityGroups/nsg3/securityRules/open80",
+  "name": "open80",
+  "priority": 100,
+  "protocol": "Tcp",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "task3",
+  "sourceAddressPrefix": "Internet",
+  "sourceAddressPrefixes": [],
+  "sourcePortRange": "*",
+  "sourcePortRanges": [],
+  "type": "Microsoft.Network/networkSecurityGroups/securityRules"
+}
+Creating nic for vm
+{
+  "NewNIC": {
+    "dnsSettings": {
+      "appliedDnsServers": [],
+      "dnsServers": [],
+      "internalDomainNameSuffix": "rruqf0kd2bfudkisv4xangynjf.ax.internal.cloudapp.net"
+    },
+    "enableAcceleratedNetworking": false,
+    "enableIPForwarding": false,
+    "etag": "W/\"9d8685c8-adc0-446d-8e3c-bc4beb64dfcf\"",
+    "hostedWorkloads": [],
+    "id": "/subscriptions/7ff2cce6-aa95-45c0-b03b-9453468761fa/resourceGroups/task3/providers/Microsoft.Network/networkInterfaces/nic3",
+    "ipConfigurations": [
+      {
+        "etag": "W/\"9d8685c8-adc0-446d-8e3c-bc4beb64dfcf\"",
+        "id": "/subscriptions/7ff2cce6-aa95-45c0-b03b-9453468761fa/resourceGroups/task3/providers/Microsoft.Network/networkInterfaces/nic3/ipConfigurations/ipconfig1",
+        "name": "ipconfig1",
+        "primary": true,
+        "privateIPAddress": "10.3.1.4",
+        "privateIPAddressVersion": "IPv4",
+        "privateIPAllocationMethod": "Dynamic",
+        "provisioningState": "Succeeded",
+        "publicIPAddress": {
+          "id": "/subscriptions/7ff2cce6-aa95-45c0-b03b-9453468761fa/resourceGroups/task3/providers/Microsoft.Network/publicIPAddresses/public-ip-3",
+          "resourceGroup": "task3"
+        },
+        "resourceGroup": "task3",
+        "subnet": {
+          "id": "/subscriptions/7ff2cce6-aa95-45c0-b03b-9453468761fa/resourceGroups/task3/providers/Microsoft.Network/virtualNetworks/vpc3/subnets/subnet1",
+          "resourceGroup": "task3"
+        },
+        "type": "Microsoft.Network/networkInterfaces/ipConfigurations"
+      }
+    ],
+    "location": "westeurope",
+    "name": "nic3",
+    "networkSecurityGroup": {
+      "id": "/subscriptions/7ff2cce6-aa95-45c0-b03b-9453468761fa/resourceGroups/task3/providers/Microsoft.Network/networkSecurityGroups/nsg3",
+      "resourceGroup": "task3"
+    },
+    "nicType": "Standard",
+    "provisioningState": "Succeeded",
+    "resourceGroup": "task3",
+    "resourceGuid": "a7693b76-e258-4088-8514-9210891ea23f",
+    "tapConfigurations": [],
+    "type": "Microsoft.Network/networkInterfaces",
+    "vnetEncryptionSupported": false
+  }
+}
+Launching vm
+Selecting "uksouth" may reduce your costs. The region you've selected may cost more for the same services. You can disable this message in the future with the command "az config set core.display_region_identified=false". Learn more at https://go.microsoft.com/fwlink/?linkid=222571 
+Starting Build 2023 event, "az vm/vmss create" command will deploy Trusted Launch VM by default. To know more about Trusted Launch, please visit https://docs.microsoft.com/en-us/azure/virtual-machines/trusted-launch
+It is recommended to use parameter "--public-ip-sku Standard" to create new VM with Standard public IP. Please note that the default public IP used for VM creation will be changed from Basic to Standard in the future.
+{
+  "fqdns": "",
+  "id": "/subscriptions/7ff2cce6-aa95-45c0-b03b-9453468761fa/resourceGroups/task3/providers/Microsoft.Compute/virtualMachines/vm3",
+  "location": "westeurope",
+  "macAddress": "60-45-BD-9B-F9-A7",
+  "powerState": "VM running",
+  "privateIpAddress": "10.3.1.4",
+  "publicIpAddress": "13.73.176.115",
+  "resourceGroup": "task3",
+  "zones": ""
+}
+Waiting 3 minutes for provisioning custom-data
+curl http://13.73.176.115
+Hello from vm3
