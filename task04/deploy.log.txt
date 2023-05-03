@@ -1,0 +1,67 @@
+./deployVM.ps1
+
+Create new resource group  task4
+{
+  "id": "/subscriptions/7ff2cce6-aa95-45c0-b03b-9453468761fa/resourceGroups/task4",
+  "location": "eastus",
+  "managedBy": null,
+  "name": "task4",
+  "properties": {
+    "provisioningState": "Succeeded"
+  },
+  "tags": null,
+  "type": "Microsoft.Resources/resourceGroups"
+}
+
+DeploymentName          : azuredeploy
+ResourceGroupName       : task4
+ProvisioningState       : Succeeded
+Timestamp               : 03.05.2023 14:53:31
+Mode                    : Incremental
+TemplateLink            : 
+Parameters              : 
+                          Name                        Type                       Value     
+                          ==========================  =========================  ==========
+                          vmName                      String                     "VMtask4" 
+                          vmSize                      String                     "Standard_DS1_v2"
+                          adminUsername               String                     "boxter"  
+                          dnsLabelPrefix              String                     "vmtask400000000"
+                          ubuntuOSVersion             String                     "18.04-LTS"
+                          authenticationType          String                     "password"
+                          adminPasswordOrKey          SecureString               null      
+                          location                    String                     "East US" 
+                          virtualNetworkName          String                     "VPC4"    
+                          subnetName                  String                     "Subnet1" 
+                          networkSecurityGroupName    String                     "NSG1"    
+                          
+Outputs                 : 
+                          Name             Type                       Value     
+                          ===============  =========================  ==========
+                          adminUserName    String                     "boxter"  
+                          hostname         String                     "vmtask400000000.eastus.cloudapp.azure.com"
+                          sshCommand       String                     "ssh boxter@vmtask400000000.eastus.cloudapp.azure.com"
+                          
+DeploymentDebugLogLevel : 
+
+{
+  "autoUpgradeMinorVersion": true,
+  "enableAutomaticUpgrade": null,
+  "forceUpdateTag": null,
+  "id": "/subscriptions/7ff2cce6-aa95-45c0-b03b-9453468761fa/resourceGroups/task4/providers/Microsoft.Compute/virtualMachines/VMtask4/extensions/CustomScript",
+  "instanceView": null,
+  "location": "eastus",
+  "name": "CustomScript",
+  "protectedSettings": null,
+  "protectedSettingsFromKeyVault": null,
+  "provisioningState": "Succeeded",
+  "publisher": "Microsoft.Azure.Extensions",
+  "resourceGroup": "task4",
+  "settings": {
+    "commandToExecute": "echo apt-key add - && apt-get -y update && apt-get -y install nginx && systemctl enable nginx && systemctl start nginx && echo 'Hello from vm4' > /var/www/html/index.nginx-debian.html"
+  },
+  "suppressFailures": null,
+  "tags": null,
+  "type": "Microsoft.Compute/virtualMachines/extensions",
+  "typeHandlerVersion": "2.1",
+  "typePropertiesType": "CustomScript"
+}

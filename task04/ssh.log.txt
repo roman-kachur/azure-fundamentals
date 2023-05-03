@@ -1,0 +1,44 @@
+ssh boxter@vmtask400000000.eastus.cloudapp.azure.com
+The authenticity of host 'vmtask400000000.eastus.cloudapp.azure.com (40.76.59.197)' can't be established.
+ED25519 key fingerprint is SHA256:mQbZHfw5i2GWqwn7sbvPngAcT24Bn86hhvwpBOg1+Ao.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'vmtask400000000.eastus.cloudapp.azure.com' (ED25519) to the list of known hosts.
+boxter@vmtask400000000.eastus.cloudapp.azure.com's password: 
+Welcome to Ubuntu 18.04.6 LTS (GNU/Linux 5.4.0-1107-azure x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Wed May  3 14:59:11 UTC 2023
+
+  System load:  0.09              Processes:           106
+  Usage of /:   5.3% of 28.89GB   Users logged in:     0
+  Memory usage: 6%                IP address for eth0: 10.4.1.4
+  Swap usage:   0%
+
+Expanded Security Maintenance for Applications is not enabled.
+
+0 updates can be applied immediately.
+
+5 additional security updates can be applied with ESM Apps.
+Learn more about enabling ESM Apps service at https://ubuntu.com/esm
+
+
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+boxter@VMtask4:~$ 
+boxter@VMtask4:~$ 
+boxter@VMtask4:~$ curl localhost
+Hello from vm4
+boxter@VMtask4:~$ 
