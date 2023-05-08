@@ -47,7 +47,7 @@ PUBLIC_IP_ADDRESS=$(az network public-ip create \
    --sku Basic \
    --tags Name=ip-3 \
    --query publicIp.ipAddress \
-   --outpu tsv)
+   --output tsv)
 
 echo ${PUBLIC_IP_ADDRESS}
 
