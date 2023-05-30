@@ -1,0 +1,41 @@
+=====================================================================
+./setup.sh 
+Generating randon password
+Creating resource group
+Creating key vault
+Creating a secret
+New secret is:
+6c9d7c363dc9c0da3ec73f7f62594e428@lT
+Creating vpc and subnet
+Allocate public ip address
+13.87.71.152
+Creating network security group
+Opening ports 22 for NSG
+Creating nic for vm
+Launching vm
+Waiting 3 minutes for provisioning custom-data
+curl http://13.87.71.152
+which shuld be dropped due to missing tcp/80 in nsg
+curl: (28) Connection timeout after 5003 ms
+Opening ports 80 for NSG
+Waiting 30 seconds for nsg
+curl http://13.87.71.152
+Hello from vm7
+
+=====================================================================
+./teardown.sh 
+Deleting vm
+Deleting nic
+Deleting network security group
+Deleting public ip
+Deleting VPC
+Deleting resource group
+Purging Key vault
+
+=====================================================================
+ssh azureadmin@13.87.71.152
+azureadmin@13.87.71.152's password: 
+Welcome to Ubuntu 22.04.2 LTS (GNU/Linux 5.15.0-1038-azure x86_64)
+azureadmin@vm7:~$
+
+=====================================================================
