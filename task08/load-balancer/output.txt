@@ -1,0 +1,17 @@
+Apply complete! Resources: 21 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+LB-Public-IP = "20.254.88.136"
+
+for i in {1..10}; do curl 20.254.88.136; done;
+Hello from backend-host-2
+Hello from backend-host-1
+Hello from backend-host-2
+Hello from backend-host-1
+Hello from backend-host-2
+Hello from backend-host-1
+Hello from backend-host-2
+Hello from backend-host-1
+Hello from backend-host-2
+Hello from backend-host-1
