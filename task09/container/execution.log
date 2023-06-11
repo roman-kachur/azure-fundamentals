@@ -1,0 +1,17 @@
+./setup.sh 
+Creating resource group
+Creating container registry
+Building image
+Packing source code into tar to upload...
+Uploading archived source code from '/tmp/build_archive_3bfe6f4e3fcd4f1c9a823cb733d71c1b.tar.gz'...
+Sending context (1.039 KiB) to registry: registry09task09...
+Queued a build with ID: db5
+Waiting for an agent...
+Running container
+Check application:
+Hello from Application v1
+
+./teardown.sh 
+Deleting container
+Deleting registry
+Deleting resource group

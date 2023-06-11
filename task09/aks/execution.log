@@ -1,0 +1,49 @@
+./setup.sh 
+Create resource group
+Create vpc and two subnets for k8s nodes
+Create container registry
+Build two images v1 and v2
+Packing source code into tar to upload...
+Uploading archived source code from '/tmp/build_archive_8d3f00307ec74efcbbf09cec4d910506.tar.gz'...
+Sending context (2.862 KiB) to registry: registry09task09aks...
+Queued a build with ID: db1
+Waiting for an agent...
+Packing source code into tar to upload...
+Uploading archived source code from '/tmp/build_archive_28168adb7a684931a4a27924298eca0c.tar.gz'...
+Sending context (2.868 KiB) to registry: registry09task09aks...
+Queued a build with ID: db2
+Waiting for an agent...
+Create AKS
+Get k8s credentials
+Merged "cluster09" as current context in /Users/personal/.kube/config
+Create deployment from image1
+deployment.apps/deployment1 created
+Expose service
+service/deployment1 exposed
+Service IP is 20.49.211.32
+
+HTTP response from service is
+Hello from Application v1
+
+Update deployment to version 2
+deployment.apps/deployment1 image updated
+
+HTTP response from service is
+Hello from Application v2
+
+Rollback deployment to version 1
+deployment.apps/deployment1 rolled back
+
+HTTP response from service is
+Hello from Application v1
+
+
+
+
+./teardown.sh 
+Delete AKS
+Delete registry
+Delete VPC
+Delete resource group
+
+
